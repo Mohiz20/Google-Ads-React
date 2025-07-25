@@ -13,7 +13,7 @@ const nextConfig = {
           },
           {
             key: 'Content-Security-Policy',
-            value: "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://imasdk.googleapis.com https://www.googletagservices.com; object-src 'none';",
+            value: "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://imasdk.googleapis.com https://www.googletagservices.com https://s0.2mdn.net https://pagead2.googlesyndication.com; object-src 'none';",
           },
         ],
       },
