@@ -1,4 +1,14 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Google IMA Ads TV Demo
+
+This is a [Next.js](https://nextjs.org) project that demonstrates Google IMA (Interactive Media Ads) SDK integration for video advertising.
+
+## Features
+
+- ✅ Google IMA SDK integration
+- ✅ Ad blocker detection and user notification
+- ✅ Robust error handling
+- ✅ Video player with ad support
+- ✅ Development-friendly debugging
 
 ## Getting Started
 
@@ -15,6 +25,50 @@ bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Troubleshooting Ad Blocking Issues
+
+### Common Error: `net::ERR_BLOCKED_BY_CLIENT`
+
+This error occurs when:
+1. **Ad Blocker is Active**: Browser extensions like uBlock Origin, AdBlock Plus block the IMA SDK
+2. **Privacy Settings**: Strict browser privacy settings block advertising scripts
+3. **Network Policies**: Corporate firewalls or DNS filters block ad-related domains
+
+### Solutions:
+
+#### For Development:
+1. **Disable Ad Blocker**: Temporarily disable for `localhost:3000`
+2. **Whitelist Domain**: Add exception for Google IMA domains:
+   - `imasdk.googleapis.com`
+   - `googletagservices.com`
+   - `doubleclick.net`
+
+#### For Production:
+1. **Implement Fallbacks**: Use the provided error handling components
+2. **User Education**: Show notices when ads are blocked
+3. **Alternative Revenue**: Provide subscription options
+
+### Built-in Solutions:
+
+This project includes:
+- **AdBlockerNotice Component**: Automatically detects and notifies users
+- **Robust Error Handling**: Graceful degradation when IMA fails
+- **Loading States**: Clear feedback during SDK initialization
+- **CSP Headers**: Proper security headers for ad loading
+
+## Project Structure
+
+```
+src/
+├── components/
+│   ├── AdBlockerNotice.js    # Ad blocker detection & notification
+│   └── VideoAdPlayer.js      # Complete video + ads implementation
+├── pages/
+│   └── index.js              # Main demo page
+└── utils/
+    └── imaLoader.js          # IMA SDK loading utilities
+```
 
 You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
